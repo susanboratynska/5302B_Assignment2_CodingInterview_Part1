@@ -7,5 +7,5 @@ Create a “Team Members” page for a website. The initial wireframe is flexibl
 
 #### Layout:
 
-![layout](https://github.com/susanboratynska/5302B_Assignment2_CodingInterview_Part1/blob/master/images/employeetemplate.png "Layout")
+![layout](https://github.com/susanboratynska/5302B_Assignment2_CodingInterview_Part1/blob/master/images/employeelayout.png "Layout")
 
