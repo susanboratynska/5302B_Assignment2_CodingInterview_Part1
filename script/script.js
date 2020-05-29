@@ -15,6 +15,16 @@ window.onload = function (){
 	var button__team = document.getElementById('button__team');
 	var button__roles = document.getElementById('button__roles');
 
+
+	// Function to output select values:
+	// function selectvalues (){
+	// 	var i = 0;
+	// 	while (i <= 10){
+	// 		idname.innerHTML += "<option value='" + i + "'>" + i + "</option>";
+	// 		i++;
+	// 	}
+	// }
+
 	// Add event listener for buttons:
 
 	button__team.addEventListener('click', clickDocumentLoaderTeam, false);
@@ -98,11 +108,11 @@ window.onload = function (){
 
 			// console.log("test");
 			output__team.innerHTML += "<div class='card' id='" + data[i].employeeid + "'><div class='card__crown " + crown + "'></div><div class='card__circle fill'><img src='http://sandbox.bittsdevelopment.com/code1/employeepics/" +  data[i].employeeid + ".jpg'></div><div class='card__name'><h3>" 
-			+ data[i].employeefname + " " + data[i].employeelname + "</h3></div><div class='card__description'>" + data[i].employeebio + "</div>";
+			+ data[i].employeefname + " " + data[i].employeelname + "</h3></div><div class='card__description'>" + data[i].employeebio + "</div><div class='card__rolecontainer' id='roleid" + data[i].employeeid + "'></div>";
 
 			
 			for (r in data[i].roles){
-				document.getElementById(data[i].employeeid).innerHTML += "<div class='card__role' style='background-color:" + data[i].roles[r].rolecolor + "'> " + data[i].roles[r].rolename + "</div>";
+				document.getElementById('roleid' + data[i].employeeid).innerHTML += "<div class='card__role' style='background-color:" + data[i].roles[r].rolecolor + "'> " + data[i].roles[r].rolename + "</div></div>";
 			}
 		}
 	}
@@ -112,6 +122,7 @@ window.onload = function (){
 		output__roles.innerHTML = "";
 		for (i in data){
 			output__roles.innerHTML += "<div class='roles' style='background-color: " + data[i].rolecolor + "'><div>" + data[i].rolename + "</div></div>";
+			// output__roles.innerHTML += "<option style='background-color: '" + data[i].rolecolor + "' value='" + data[i].rolename + "'>" + data[i].rolename + "</option>";
 		}
 	}
 

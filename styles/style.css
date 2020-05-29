@@ -29,23 +29,30 @@ button {
   margin-bottom: 20px;
 }
 
+#output__team {
+	border-spacing:15px;
+	display:flex;
+	flex-wrap: wrap;
+	width: 100%;
+
+}
+
 .card {
+	flex: 1 0 21%;
 	border-style: solid;
 	border-width: 1.5px;
-	height: 500px;
-	width: 30%;
 	text-align: center;
-	display: inline-block;
+	max-width: 21%;
 	margin: 5px;
 	position: relative;
 	vertical-align: top;
 	margin-top: 20px;
-
+	padding-bottom: 50px;
 }
 
 .card__crown {
-	height: 50px;
-	width: 55px;
+	height: 35px;
+	width: 40px;
     position: absolute;
     top: 5px;
     right: 15px;
@@ -83,20 +90,22 @@ button {
 }
 
 .card__description {
-	padding: 0 8px;
+	padding: 0 10px;
 	text-align: left;
-  	overflow: hidden;
-  	white-space: wrap;
-	overflow: scroll;
-	height: 200px;
-	width: 92%;
+	height: auto;
+	min-height: 175px;
 	display: block;
 	font-size: 16px;
 }
+ 
+.card__rolecontainer {
+	width: 100%;
+	position:absolute;
+    bottom:0;
+}
 
 .card__role {
-	margin-left: 8px;
-	margin-top: 15px;
+	margin: 0 0 8px 8px;
 	width: 35%;
 	display: inline-block;
 	float: left;
@@ -106,6 +115,7 @@ button {
 	border-color: #ededed;
 	padding: 4px;
 	font-size: 14px;
+	vertical-align: bottom;
 }
 
 .roles{
@@ -121,8 +131,10 @@ button {
 
 
 .crown {
-	background: url("images/crown.png") no-repeat;
+	background: url("../images/crown.png") no-repeat;
     background-size: 100%;
 
 }
+
+
 
