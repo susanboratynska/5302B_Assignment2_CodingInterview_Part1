@@ -11,9 +11,14 @@ window.onload = function (){
 
 	var output__team = document.getElementById('output__team');
 	var output__roles = document.getElementById('output__roles');
+	var select__roleoptions = document.getElementById('select__roleoptions');
+
 
 	var button__team = document.getElementById('button__team');
 	var button__roles = document.getElementById('button__roles');
+
+
+	
 
 
 	// Function to output select values:
@@ -26,9 +31,28 @@ window.onload = function (){
 	// }
 
 	// Add event listener for buttons:
-
 	button__team.addEventListener('click', clickDocumentLoaderTeam, false);
 	button__roles.addEventListener('click', clickDocumentLoaderRoles, false);
+
+
+	// Display roles in drop-down list:
+	requestData(roleObject, displayRoleOptions, fetchroles);
+
+
+
+	// Display employees based on dropdown list selection:
+	select__roleoptions.addEventListener('change', fetchEmployeeByRoleURL, false);
+
+	console.log(select__roleoptions.value);
+
+	function fetchEmployeeByRoleURL () {
+		console.log(select__roleoptions.value);
+		var fetchurl = (fetchemployees + "?roles=" + select__roleoptions.value);
+		console.log(fetchurl);
+		requestData(employeeObject, getMemberData, fetchurl);
+
+	}
+
 
 
 	// Function to request data from server:
@@ -54,6 +78,7 @@ window.onload = function (){
 		requestData(employeeObject, getMemberData, fetchemployees);
 	}
 
+
 	// Function to request Team Member data from server:
 	// function documentLoaderTeam (){
 	// 	var xmlhttp_team = new XMLHttpRequest(); 
@@ -76,6 +101,9 @@ window.onload = function (){
 	function clickDocumentLoaderRoles (event) {
 		requestData(roleObject, getRolesData, fetchroles);
 	}
+
+
+
 
 	// Function to request Role data from server:
 	// function documentLoaderRoles (){
@@ -122,9 +150,20 @@ window.onload = function (){
 		output__roles.innerHTML = "";
 		for (i in data){
 			output__roles.innerHTML += "<div class='roles' style='background-color: " + data[i].rolecolor + "'><div>" + data[i].rolename + "</div></div>";
-			// output__roles.innerHTML += "<option style='background-color: '" + data[i].rolecolor + "' value='" + data[i].rolename + "'>" + data[i].rolename + "</option>";
 		}
 	}
+
+
+	// Function to display Roles in drop down list:
+	function displayRoleOptions(data) {
+		select__roleoptions.innerHTML += "<option class='roles' value=''>All Roles</option>";
+
+		for (i in data){
+			select__roleoptions.innerHTML += "<option class='roles' value='" + data[i].roleid + "'>" + data[i].rolename + "</option>";
+		}
+	}
+
+
 
 }
 
